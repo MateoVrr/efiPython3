@@ -210,6 +210,13 @@ Content-Type: application/json
 }
 ```
 
+### 🔸 Ver Estadisticas
+```http
+GET http://localhost:5000/stats
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+```
+
 ---
 
 ## 🧰 Datos de prueba sugeridos
