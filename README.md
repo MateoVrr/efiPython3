@@ -18,26 +18,6 @@ Implementa una **API REST segura** con autenticación JWT, control de acceso bas
 
 ---
 
-## 📁 Estructura del proyecto
-
-/efipython
-├── app.py # Configuración principal y rutas
-├── models/
-│ └── models.py # Modelos SQLAlchemy
-├── schemas/
-│ └── schemas.py # Esquemas Marshmallow
-├── views/
-│ └── views.py # Endpoints basados en MethodView
-├── decorators/ # (para roles/permisos, opcional)
-├── services/ # (lógica de negocio)
-├── requirements.txt
-└── README.md
-
-yaml
-Copiar código
-
----
-
 ## ⚙️ Configuración e instalación
 
 ### 1. Clonar el repositorio
