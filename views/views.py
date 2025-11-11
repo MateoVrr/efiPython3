@@ -238,7 +238,7 @@ class ReviewDetailAPI(MethodView):
         requesterId = int(get_jwt_identity())
         role = claims.get("role")
 
-        if requesterId != comentario.usuario_id and role != "admin":
+        if requesterId != comentario.usuario_id and role not in ["admin", "moderator"]:
             return {"error": "No autorizado"}, 403
 
         db.session.delete(comentario)
