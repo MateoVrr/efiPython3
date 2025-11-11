@@ -175,6 +175,18 @@ Content-Type: application/json
 
 ### 🔸 Crear Post
 ```http
+POST http://localhost:5000/categories
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+
+{
+  "nombre": "General",
+  "descripcion": "Publicaciones generales"
+}
+```
+
+### 🔸 Crear Post
+```http
 POST http://localhost:5000/posts
 Authorization: Bearer <TOKEN>
 Content-Type: application/json
@@ -209,6 +221,8 @@ Content-Type: application/json
 
 ## 👨‍💻 Autores
 - **Mateo Torres**
+- **Facundo Bellandi**
+- **Santiago Capellino**
   
 ---
 
