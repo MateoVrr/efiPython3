@@ -173,7 +173,7 @@ Content-Type: application/json
 }
 ```
 
-### 🔸 Crear Post
+### 🔸 Crear Categorias
 ```http
 POST http://localhost:5000/categories
 Authorization: Bearer <TOKEN>
