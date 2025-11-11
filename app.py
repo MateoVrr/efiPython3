@@ -30,6 +30,7 @@ from views.views import (
     ReviewDetailAPI,
     CategoriaAPI,
     CategoriaDetailAPI,
+    StatsView,
 )
 
 # RUTAS USUARIOS
