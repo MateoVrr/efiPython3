@@ -52,6 +52,8 @@ app.add_url_rule("/reviews/<int:review_id>",view_func=ReviewDetailAPI.as_view("r
 app.add_url_rule("/categories", view_func=CategoriaAPI.as_view("categoria_api"), methods=["GET", "POST"])
 app.add_url_rule("/categories/<int:id>", view_func=CategoriaDetailAPI.as_view("categoria_detail_api"), methods=["PUT", "DELETE"])
 
+# STATS
+app.add_url_rule('/stats', view_func=StatsView.as_view('stats'), methods=["GET"])
 
 if __name__ == "__main__":
     app.run(debug=True)
