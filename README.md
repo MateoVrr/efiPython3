@@ -209,6 +209,8 @@ Content-Type: application/json
 
 ## 👨‍💻 Autores
 - **Mateo Torres**
+- **Facundo Bellandi**
+- **Santiago Capellino**
 
 ---
 
