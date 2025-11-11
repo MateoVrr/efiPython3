@@ -198,6 +198,18 @@ Content-Type: application/json
 }
 ```
 
+### 🔸 Crear Comentario
+```http
+POST http://localhost:5000/reviews
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+
+{
+  "post_id": 1,
+  "texto": "Comentario de prueba"
+}
+```
+
 ---
 
 ## 🧰 Datos de prueba sugeridos
