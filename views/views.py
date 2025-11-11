@@ -298,3 +298,54 @@ class CategoriaDetailAPI(MethodView):
         db.session.delete(categoria)
         db.session.commit()
         return {}, 204
+
+# ---------- ESTADÍSTICAS ----------
+
+class StatsView(MethodView):
+    @jwt_required()
+    def get(self):
+        claims = get_jwt()
+        role = claims.get("role")
+
+        if role not in ["moderator", "admin"]:
+            return {"error": "No autorizado"}, 403
+
+        # Datos básicos
+        cantidad_usuarios = Usuario.query.count()
+        cantidad_posts = Post.query.count()
+        cantidad_comentarios = Comentario.query.count()
+
+        stats = {
+            "usuarios": cantidad_usuarios,
+            "posts": cantidad_posts,
+            "comentarios": cantidad_comentarios
+        }
+
+        if role == "admin":
+            # Datos adicionales para admin
+            cantidad_categorias = Categoria.query.count()
+
+            # Promedio de comentarios por post
+            promedio_comentarios = 0
+            if cantidad_posts > 0:
+                promedio_comentarios = cantidad_comentarios / cantidad_posts
+
+            # Posts por usuario
+            posts_por_usuario = (
+                db.session.query(Usuario.nombre, db.func.count(Post.id))
+                .join(Post, Usuario.id == Post.usuario_id)
+                .group_by(Usuario.nombre)
+                .all()
+            )
+
+            # Actualizamos el stats en caso de que el rol sea admin
+            stats.update({
+                "categorias": cantidad_categorias,
+                "promedio_comentarios_por_post": round(promedio_comentarios, 2),
+                "posts_por_usuario": [
+                    {"usuario": nombre, "cantidad_posts": cantidad}
+                    for nombre, cantidad in posts_por_usuario
+                ]
+            })
+
+        return stats, 200
