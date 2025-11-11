@@ -79,7 +79,7 @@ flask db upgrade
 
 ### 6. Ejecutar el servidor
 ```bash
-python app.py
+flask run
 ```
 La API correrá en `http://127.0.0.1:5000/`
 
